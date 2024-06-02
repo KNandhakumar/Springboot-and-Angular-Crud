@@ -1,12 +1,12 @@
 package com.nandhu.todo.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
-@Entity
+@Table(name = "tasks") // table annotation used for change the mysql database name
+@Entity // Entity annotation use for spring boot to database create connection
 public class Task {
-    @Id
-
+    @Id // Id annotation use for this is primary key
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // GeneratedValue annotation is generate unic id auto increment
     private Long id;
     private String description;
     private boolean completed;
